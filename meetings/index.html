@@ -100,7 +100,7 @@ title: 小组会
                             <div class="meeting-image-container">
                               {% assign meeting_date = meeting[0] %}
                               {% assign presentation_id = forloop.index %}
-                              {% assign img_filename = meeting_date | append: '-' | append: presentation_id | append: '.png' %}
+                              {% assign img_filename = meeting_date | append: '-0' | append: presentation_id | append: '.png' %}
                               <img loading="lazy" src="{{ site.baseurl }}/assets/images/meetings/{{ meeting_date }}/{{ img_filename }}" 
                                    class="card-img" alt="{{ presentation[0] }}" 
                                    onerror="this.src='{{ site.baseurl }}/assets/images/meetings/default.png'" width="240" height="180">
@@ -149,7 +149,7 @@ title: 小组会
                             <div class="meeting-image-container">
                               {% assign meeting_date = meeting[0] %}
                               {% assign presentation_id = forloop.index %}
-                              {% assign img_filename = meeting_date | append: '-' | append: presentation_id | append: '.png' %}
+                              {% assign img_filename = meeting_date | append: '-0' | append: presentation_id | append: '.png' %}
                               <img loading="lazy" src="{{ site.baseurl }}/assets/images/meetings/{{ meeting_date }}/{{ img_filename }}" 
                                    class="card-img" alt="{{ presentation[0] }}" 
                                    onerror="this.src='{{ site.baseurl }}/assets/images/meetings/default.png'" width="240" height="180">
