@@ -25,7 +25,7 @@ plugins:
 collections:
   meetings:
     output: true
-    permalink: /meetings/:year/:month/:day/:title/
+    permalink: /meetings/:title/
   members:
     output: true
     permalink: /members/:path/
