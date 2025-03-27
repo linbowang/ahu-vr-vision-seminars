@@ -14,14 +14,7 @@ layout: default
           </div>
         </header>
 
-<!--        &lt;!&ndash; 会议图片 &ndash;&gt;-->
-<!--        <div class="post-image mb-4">-->
-<!--          {% assign img_date = page.date | date: "%Y-%m-%d" %}-->
-<!--          {% assign img_title = page.title %}-->
-<!--          {% assign img_path = "/assets/images/meetings/" | append: img_date | append: "/" | append: img_date | append: "-" | append: img_title | append: ".png" %}-->
-<!--          <img src="{{ site.baseurl }}{{ img_path }}" class="img-fluid rounded" alt="{{ page.paper_title }}" -->
-<!--               onerror="this.src='{{ site.baseurl }}/assets/images/meetings/default.png'">-->
-<!--        </div>-->
+        <!-- 会议图片不再在这里显示，而是在Markdown内容中显示 -->
 
         {% if page.abstract %}
         <div class="post-excerpt mb-4 p-4" style="background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #0F4C81;">

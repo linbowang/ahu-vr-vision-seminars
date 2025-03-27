@@ -50,6 +50,24 @@ body {
 
 /* 文章内容页面 */
 
+/* 会议图片样式 */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.post-content h2 {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  color: #0F4C81;
+  font-weight: 600;
+}
+
+
 /* 按类别浏览样式 */
 .category-block {
   background-color: #f8f9fa;
