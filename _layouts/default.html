@@ -28,9 +28,32 @@
   <script>
     // 初始化Fancybox
     document.addEventListener('DOMContentLoaded', function() {
+      // Fancybox全局配置
+      Fancybox.bind("[data-fancybox]", {
+        // 启用点击空白区域关闭
+        clickContent: "close",
+        // 启用点击滑动区域关闭
+        clickSlide: "close",
+        // 显示关闭按钮
+        showCloseButton: true,
+        // 图片切换效果
+        Carousel: {
+          transition: "fade"
+        },
+        // 图像缩放设置
+        Image: {
+          zoom: true,
+        }
+      });
+      
       // 为.post-content内的所有图片添加Fancybox功能
       const images = document.querySelectorAll('.post-content img');
       images.forEach(img => {
+        // 如果图片已经被包裹，则跳过
+        if (img.parentNode.tagName === 'A' && img.parentNode.hasAttribute('data-fancybox')) {
+          return;
+        }
+        
         // 创建一个a标签包裹图片
         const link = document.createElement('a');
         link.href = img.src;
