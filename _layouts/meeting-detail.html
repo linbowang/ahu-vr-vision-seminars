@@ -1,0 +1,67 @@
+---
+layout: default
+---
+<div class="container mt-4 mb-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <article class="post">
+        <header class="post-header">
+          <h1 class="post-title">{% if page.paper_title %}{{ page.paper_title }}{% else %}{{ page.title }}{% endif %}</h1>
+          <div class="post-meta">
+            <span class="date">{{ page.date | date: "%Y-%m-%d" }}</span>
+            {% if page.presenter %} • <span class="author">报告人：{{ page.presenter }}</span>{% endif %}
+            {% if page.venue %} • <span class="venue">发表会议：{{ page.venue }}</span>{% endif %}
+          </div>
+        </header>
+
+        <!-- 会议图片 -->
+        <div class="post-image mb-4">
+          {% assign img_date = page.date | date: "%Y-%m-%d" %}
+          {% assign img_title = page.title %}
+          {% assign img_path = "/assets/images/meetings/" | append: img_date | append: "/" | append: img_date | append: "-" | append: img_title | append: ".png" %}
+          <img src="{{ site.baseurl }}{{ img_path }}" class="img-fluid rounded" alt="{{ page.paper_title }}" 
+               onerror="this.src='{{ site.baseurl }}/assets/images/meetings/default.png'">
+        </div>
+
+        {% if page.abstract %}
+        <div class="post-excerpt mb-4 p-4" style="background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #0F4C81;">
+          <h4>摘要</h4>
+          <p>{{ page.abstract }}</p>
+        </div>
+        {% endif %}
+        
+        <div class="post-content">
+          {{ content }}
+        </div>
+        
+        {% if page.paper_url or page.slides_url %}
+        <div class="post-links mt-4">
+          <h4>相关资源</h4>
+          <div class="d-flex flex-wrap">
+            {% if page.paper_url %}
+            <a href="{{ page.paper_url }}" target="_blank" class="btn btn-primary m-1" style="border-radius: 20px;">
+              <i class="fas fa-file-pdf mr-1"></i> 查看论文
+            </a>
+            {% endif %}
+            {% if page.slides_url %}
+            <a href="{{ page.slides_url }}" target="_blank" class="btn btn-info m-1" style="border-radius: 20px;">
+              <i class="fas fa-desktop mr-1"></i> 查看演示文稿
+            </a>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+        
+        <nav class="post-navigation mt-5">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <a href="{{ site.baseurl }}/meetings/index.html" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left"></i> 返回会议列表
+              </a>
+            </div>
+          </div>
+        </nav>
+      </article>
+    </div>
+  </div>
+</div>
