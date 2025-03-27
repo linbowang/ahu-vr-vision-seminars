@@ -7,6 +7,7 @@
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   {% include head-custom.html %}
@@ -22,6 +23,26 @@
   
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
   <script src="{{ "/assets/js/main.js" | prepend: site.baseurl }}"></script>
+  <script>
+    // 初始化Fancybox
+    document.addEventListener('DOMContentLoaded', function() {
+      // 为.post-content内的所有图片添加Fancybox功能
+      const images = document.querySelectorAll('.post-content img');
+      images.forEach(img => {
+        // 创建一个a标签包裹图片
+        const link = document.createElement('a');
+        link.href = img.src;
+        link.setAttribute('data-fancybox', 'meeting-images');
+        link.setAttribute('data-caption', img.alt);
+        
+        // 将图片替换为包裹后的结构
+        const parent = img.parentNode;
+        parent.insertBefore(link, img);
+        link.appendChild(img);
+      });
+    });
+  </script>
 </body>
 </html>
