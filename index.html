@@ -70,7 +70,7 @@ title: 学术研讨班资料库
         <div class="col-md-12">
             <h2>最新报告</h2>
             <div class="post-cards">
-                {% assign filtered_posts = site.posts | where_exp:"post", "post.categories contains 'meetings' != true" %}
+                {% assign filtered_posts = site.posts | where_exp:"post", "post.categories contains 'meetings' == false" %}
                 {% for post in filtered_posts limit:4 %}
                 <div class="post-card mb-4">
                     <div class="row no-gutters">
