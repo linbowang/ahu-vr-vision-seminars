@@ -23,7 +23,7 @@ plugins:
 
 # 集合设置
 collections:
-  _meetings:
+  meetings:
     output: true
     permalink: /meetings/:year/:month/:day/:title/
   members:
